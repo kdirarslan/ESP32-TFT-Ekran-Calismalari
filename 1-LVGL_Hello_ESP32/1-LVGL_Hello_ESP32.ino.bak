@@ -5,7 +5,6 @@
 static const uint16_t screenWidth  = 480;
 static const uint16_t screenHeight = 320;
 
-#define ILI9488_DRIVER
 TFT_eSPI tft = TFT_eSPI(); // TFT instance
 static lv_disp_draw_buf_t draw_buf;
 static lv_color_t buf[ screenWidth * 10 ];
@@ -70,7 +69,7 @@ void setup() {
   /*Initialize the display*/
   static lv_disp_drv_t disp_drv;    //HAL tarafından kaydedilen Display driver struct'ıdır.
   lv_disp_drv_init( &disp_drv );
-  /*Ekran çözünürlüğüne göre aşağıdaki kodları değiştiriniz*/
+  /*Change the following line to your display resolution*/
   disp_drv.hor_res = screenWidth;
   disp_drv.ver_res = screenHeight;
   disp_drv.flush_cb = my_disp_flush; //Ekran flash'lama
