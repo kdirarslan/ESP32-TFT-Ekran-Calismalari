@@ -61,7 +61,7 @@ void setup() {
   lv_init();
 
   tft.begin(); /* TFT init */
-  tft.setRotation(3);
+  tft.setRotation(1);
   //uint16_t calData[5] = { 275, 3620, 264, 3532, 1 };
   uint16_t calData[5] = { 222, 3375, 445, 3250, 0 };
   tft.setTouch(calData);
