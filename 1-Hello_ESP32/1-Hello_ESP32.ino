@@ -27,11 +27,9 @@ void my_disp_flush( lv_disp_drv_t *disp, const lv_area_t *area, lv_color_t *colo
 void my_touchpad_read( lv_indev_drv_t * indev_driver, lv_indev_data_t * data )
 {
   uint16_t touchX, touchY;
-
   bool touched = tft.getTouch( &touchX, &touchY, 600 );
 
-  if ( !touched )
-  {
+  if ( !touched )  {
     data->state = LV_INDEV_STATE_REL;
   }
   else
@@ -41,11 +39,8 @@ void my_touchpad_read( lv_indev_drv_t * indev_driver, lv_indev_data_t * data )
     data->point.x = touchX;
     data->point.y = touchY;
 
-    Serial.print( "Data x " );
-    Serial.println( touchX );
-
-    Serial.print( "Data y " );
-    Serial.println( touchY );
+    Serial.print( "Data x " );    Serial.println( touchX );
+    Serial.print( " - Data y " ); Serial.println( touchY );
   }
 }
 
@@ -67,9 +62,9 @@ void setup() {
   lv_disp_draw_buf_init( &draw_buf, buf, NULL, screenWidth * 10 );
 
   /*Initialize the display*/
-  static lv_disp_drv_t disp_drv;    //HAL tarafından kaydedilen Display driver struct'ıdır.
+  static lv_disp_drv_t disp_drv;     //HAL tarafından kaydedilen Display driver struct'ıdır.
   lv_disp_drv_init( &disp_drv );
-  /*Change the following line to your display resolution*/
+  /*Ekran çözünürlüğüne göre aşağıdaki kodları değiştiriniz*/
   disp_drv.hor_res = screenWidth;
   disp_drv.ver_res = screenHeight;
   disp_drv.flush_cb = my_disp_flush; //Ekran flash'lama

@@ -1,13 +1,10 @@
 #include <lvgl.h>
-#include <Ticker.h>
 #include <TFT_eSPI.h>
 
-#define LVGL_TICK_PERIOD 60
 /*Ekran Çözünürlüğü*/
 static const uint16_t screenWidth  = 480;
 static const uint16_t screenHeight = 320;
 
-Ticker tick; /* timer for interrupt handler */
 TFT_eSPI tft = TFT_eSPI(); /* TFT instance */
 static lv_disp_draw_buf_t draw_buf;
 static lv_color_t buf[ screenWidth * 10 ];
