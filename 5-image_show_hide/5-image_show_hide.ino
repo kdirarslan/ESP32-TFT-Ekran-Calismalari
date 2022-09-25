@@ -85,7 +85,7 @@ void setup()
   static lv_indev_drv_t indev_drv;
   lv_indev_drv_init( &indev_drv );
   indev_drv.type = LV_INDEV_TYPE_POINTER;
-  indev_drv.read_cb = my_touchpad_read;
+  //indev_drv.read_cb = my_touchpad_read; //dokunmatik ekranı kullanma
   lv_indev_drv_register( &indev_drv );
 
   ui_init();
