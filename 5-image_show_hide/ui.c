@@ -56,16 +56,16 @@ lv_obj_t * ui_Image3;
     }
   }*/
 
-void dinamik_ekran_ayarlari(bool durum)
+void dinamik_ekran_ayarlari(bool durum, const char* mesaj)
 {
   if (durum) {
     _ui_flag_modify(ui_Image3, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_ADD);
-    lv_label_set_text(ui_Label1, "HOSGELDINIZ");
   }
   else {
     _ui_flag_modify(ui_Image3, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_REMOVE);
-    lv_label_set_text(ui_Label1, "GECINIZ");
+    
   }
+  lv_label_set_text(ui_Label1, mesaj);
 }
 
 ///////////////////// SCREENS ////////////////////

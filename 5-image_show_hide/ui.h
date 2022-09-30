@@ -21,7 +21,7 @@ extern "C" {
 #else
 #include "lvgl.h"
 #endif
-void dinamik_ekran_ayarlari(bool durum);
+void dinamik_ekran_ayarlari(bool durum, const char* mesaj);
 void ui_event_hosgeldiniz(lv_event_t * e);
 extern lv_obj_t * ui_hosgeldiniz;
 extern lv_obj_t * ui_Label1;
@@ -37,8 +37,6 @@ extern lv_obj_t * ui_Image3;
 
 LV_IMG_DECLARE(ui_img_exclamation_png);    // assets\exclamation.png
 LV_IMG_DECLARE(ui_img_isubulogo_png);    // assets\isubulogo.png
-
-
 
 
 void ui_init(void);
