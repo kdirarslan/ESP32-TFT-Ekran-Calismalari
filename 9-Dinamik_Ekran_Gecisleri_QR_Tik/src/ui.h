@@ -29,11 +29,9 @@ extern lv_obj_t * ui_tarihSaat;
 void ui_event_mesaj(lv_event_t * e);
 extern lv_obj_t * ui_mesaj;
 extern lv_obj_t * ui_imageTik;
-extern lv_obj_t * ui_imageWifi;
 extern lv_obj_t * qr;
 
 LV_IMG_DECLARE(ui_img_110_png);    // assets\110.png
-LV_IMG_DECLARE(ui_img_wifi_icon_png);    // assets\wifi_icon.png
 
 
 LV_FONT_DECLARE(ui_font_GothamNarrow);

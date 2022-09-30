@@ -13,7 +13,6 @@ lv_obj_t * ui_tarihSaat;
 void ui_event_mesaj(lv_event_t * e);
 lv_obj_t * ui_mesaj;
 lv_obj_t * ui_imageTik;
-lv_obj_t * ui_imageWifi;
 lv_obj_t * qr;
 ///////////////////// TEST LVGL SETTINGS ////////////////////
 #if LV_COLOR_DEPTH != 16
@@ -26,24 +25,6 @@ lv_obj_t * qr;
 ///////////////////// ANIMATIONS ////////////////////
 
 ///////////////////// FUNCTIONS ////////////////////
-void ui_event_tarihSaat(lv_event_t * e)
-{
-  lv_event_code_t event_code = lv_event_get_code(e);
-  lv_obj_t * target = lv_event_get_target(e);
-  if (event_code == LV_EVENT_CLICKED) {
-    _ui_flag_modify(ui_imageTik, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_ADD);
-    _ui_flag_modify(ui_imageWifi, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_REMOVE);
-  }
-}
-void ui_event_mesaj(lv_event_t * e)
-{
-  lv_event_code_t event_code = lv_event_get_code(e);
-  lv_obj_t * target = lv_event_get_target(e);
-  if (event_code == LV_EVENT_CLICKED) {
-    _ui_flag_modify(ui_imageWifi, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_ADD);
-    _ui_flag_modify(ui_imageTik, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_REMOVE);
-  }
-}
 
 void dinamik_ekran_ayarlari(bool durum, const char* mesaj)
 {
@@ -126,9 +107,6 @@ void ui_anaEkran_screen_init(void)
   lv_obj_set_align(ui_imageTik, LV_ALIGN_CENTER);
   lv_obj_add_flag(ui_imageTik, LV_OBJ_FLAG_ADV_HITTEST);     /// Flags
   lv_obj_clear_flag(ui_imageTik, LV_OBJ_FLAG_SCROLLABLE);      /// Flags
-
-  lv_obj_add_event_cb(ui_tarihSaat, ui_event_tarihSaat, LV_EVENT_ALL, NULL);
-  lv_obj_add_event_cb(ui_mesaj, ui_event_mesaj, LV_EVENT_ALL, NULL);
 
 }
 
