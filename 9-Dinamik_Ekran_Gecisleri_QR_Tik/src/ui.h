@@ -22,6 +22,8 @@ extern "C" {
 #include "lvgl.h"
 #endif
 
+extern void lv_example_qrcode_1();
+
 void dinamik_ekran_ayarlari(bool durum, const char* mesaj);
 extern lv_obj_t * ui_anaEkran;
 void ui_event_tarihSaat(lv_event_t * e);

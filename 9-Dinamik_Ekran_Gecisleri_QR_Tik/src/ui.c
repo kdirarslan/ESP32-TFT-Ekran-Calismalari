@@ -14,6 +14,7 @@ void ui_event_mesaj(lv_event_t * e);
 lv_obj_t * ui_mesaj;
 lv_obj_t * ui_imageTik;
 lv_obj_t * qr;
+void lv_example_qrcode_1();
 ///////////////////// TEST LVGL SETTINGS ////////////////////
 #if LV_COLOR_DEPTH != 16
 #error "LV_COLOR_DEPTH should be 16bit to match SquareLine Studio's settings"
@@ -35,13 +36,11 @@ void dinamik_ekran_ayarlari(bool durum, const char* mesaj)
   else { //QR Okutunuz mesajı
     _ui_flag_modify(qr, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_ADD);
     _ui_flag_modify(ui_imageTik, LV_OBJ_FLAG_HIDDEN, _UI_MODIFY_FLAG_REMOVE);
-
-
   }
   lv_label_set_text(ui_mesaj, mesaj);
 }
 
-void lv_example_qrcode_1(void)
+void lv_example_qrcode_1()
 {   
     lv_color_t bg_color = lv_color_hsv_to_rgb(219,59,27);
     //lv_color_t bg_color = lv_palette_lighten(LV_PALETTE_LIGHT_BLUE, 5);
@@ -49,8 +48,8 @@ void lv_example_qrcode_1(void)
 
     qr = lv_qrcode_create(ui_anaEkran, 120, fg_color, bg_color);
 
-    /*Set data*/
-    const char * data = "HOSGELDINIZ";
+
+    const char * data = "QR Sistemi";
     lv_qrcode_update(qr, data, strlen(data));
     lv_obj_set_x(qr, 0);
     lv_obj_set_y(qr, -30);
@@ -62,7 +61,6 @@ void lv_example_qrcode_1(void)
 }
 
 
-
 ///////////////////// SCREENS ////////////////////
 void ui_anaEkran_screen_init(void)
 {
@@ -71,7 +69,7 @@ void ui_anaEkran_screen_init(void)
   lv_obj_set_style_bg_color(ui_anaEkran, lv_color_hex(0x1c2a44), LV_PART_MAIN | LV_STATE_DEFAULT);
   lv_obj_set_style_bg_opa(ui_anaEkran, 255, LV_PART_MAIN | LV_STATE_DEFAULT);
 
-  lv_example_qrcode_1();
+  lv_example_qrcode_1("ilk_baski");
 
   ui_tarihSaat = lv_label_create(ui_anaEkran);
   lv_obj_set_width(ui_tarihSaat, LV_SIZE_CONTENT);   /// 1
@@ -107,7 +105,6 @@ void ui_anaEkran_screen_init(void)
   lv_obj_set_align(ui_imageTik, LV_ALIGN_CENTER);
   lv_obj_add_flag(ui_imageTik, LV_OBJ_FLAG_ADV_HITTEST);     /// Flags
   lv_obj_clear_flag(ui_imageTik, LV_OBJ_FLAG_SCROLLABLE);      /// Flags
-
 }
 
 void ui_init(void)

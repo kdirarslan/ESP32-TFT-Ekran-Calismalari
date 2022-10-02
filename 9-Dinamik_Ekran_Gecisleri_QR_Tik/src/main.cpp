@@ -3,7 +3,6 @@
 #include <extra/libs/qrcode/lv_qrcode.h>
 #include <TFT_eSPI.h>
 #include "ui.h"
-
 /*If you want to use the LVGL examples,
   make sure to install the lv_examples Arduino library
   and uncomment the following line.
@@ -11,6 +10,7 @@
 */
 
 /*Change to your screen resolution*/
+char QRData[40] = "HOSGELDINIZ";
 static const uint16_t screenWidth  = 480;
 static const uint16_t screenHeight = 320;
 
@@ -123,6 +123,8 @@ void loop()
   if (millis() - sonSure > 2000) {
     durum = !durum;
     if (durum) {
+
+      lv_qrcode_update(qr, QRData, strlen(QRData));
       dinamik_ekran_ayarlari(true, "ISUBÜ Mobilden QR Okutunuz");
     }
     else {
